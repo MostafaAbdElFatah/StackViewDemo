@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labeltext: UILabel!
+    var show = true
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +22,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func Show_btnClicked(sender: AnyObject) {
+        
+        let btn = sender as! UIButton
+        if btn.titleLabel?.text == "Show Description"{
+            btn.setTitle("hidden Description", forState: .Normal)
+            UIView.animateWithDuration(0.3,  animations: { () -> Void in
+                self.labeltext.hidden = false
+            })
+        }else if btn.titleLabel?.text == "hidden Description"{
+            btn.setTitle("Show Description", forState: .Normal)
+            UIView.animateWithDuration(0.3,  animations: { () -> Void in
+                self.labeltext.hidden = true
+            })
+        }
+        
+    }
 
 }
 
