@@ -12,28 +12,24 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var labeltext: UILabel!
     var show = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func Show_btnClicked(sender: AnyObject) {
+    
+    @IBAction func Show_btnClicked(_ sender: AnyObject) {
         
         let btn = sender as! UIButton
-        if btn.titleLabel?.text == "Show Description"{
-            btn.setTitle("hidden Description", forState: .Normal)
-            UIView.animateWithDuration(0.3,  animations: { () -> Void in
-                self.labeltext.hidden = false
+        if btn.titleLabel?.text == "Show Description" {
+            btn.setTitle("hidden Description", for: .normal)
+            UIView.animate(withDuration: 0.3,  animations: { () -> Void in
+                self.labeltext.isHidden = false
             })
         }else if btn.titleLabel?.text == "hidden Description"{
-            btn.setTitle("Show Description", forState: .Normal)
-            UIView.animateWithDuration(0.3,  animations: { () -> Void in
-                self.labeltext.hidden = true
+            btn.setTitle("Show Description", for: .normal)
+            UIView.animate(withDuration: 0.3,  animations: { () -> Void in
+                self.labeltext.isHidden = true
             })
         }
         
